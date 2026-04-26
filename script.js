@@ -114,7 +114,7 @@ if (slides.length) {
    CONFIGURACIÓN GENERAL
 ========================= */
 
-const WHATSAPP_NUMBER = "573000000000";
+const WHATSAPP_NUMBER = "573124268479";
 const DONATION_LINK = "#";
 
 /* =========================

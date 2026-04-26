@@ -893,4 +893,100 @@ a {
   .contact-info h2 {
     font-size: 34px;
   }
+
+  /* Noticia destacada */
+
+.news-feature {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 30px;
+  padding: 46px;
+  box-shadow: var(--shadow);
+  border-left: 8px solid var(--green);
+  position: relative;
+  overflow: hidden;
+}
+
+.news-feature::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 180px;
+  height: 180px;
+  background: rgba(246, 195, 59, 0.18);
+  border-radius: 50%;
+}
+
+.news-feature-label {
+  display: inline-block;
+  background: rgba(47, 148, 68, 0.1);
+  color: var(--green);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.news-feature h3 {
+  color: var(--blue);
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.12;
+  margin-bottom: 22px;
+  max-width: 760px;
+}
+
+.news-feature p {
+  color: var(--gray);
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 780px;
+  margin-bottom: 28px;
+}
+
+.news-feature-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+  color: var(--white);
+  min-height: 54px;
+  padding: 0 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+/* Mejoras contacto */
+
+.contact-label {
+  display: inline-block;
+  color: var(--green);
+  font-weight: 800;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.contact-info li {
+  line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+  .news-feature {
+    padding: 30px 24px;
+  }
+
+  .news-feature p {
+    font-size: 16px;
+  }
+
+  .news-feature-link {
+    width: 100%;
+    text-align: center;
+  }
+}
 }
