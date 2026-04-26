@@ -207,7 +207,7 @@ imageFallbacks.forEach((img) => {
 ========================= */
 
 const WHATSAPP_NUMBER = "573124268479";
-const DONATION_LINK = "#";
+const DONATION_LINK = "https://payco.link/b59cbf39-9736-46ed-a46c-599cba7beb32";
 
 /* =========================
    BOTONES DE DONACIÓN
