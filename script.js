@@ -22,7 +22,7 @@ navLinks.forEach((link) => {
 // Cambia este número por el WhatsApp real de la fundación.
 // Debe ir con indicativo de país, sin espacios ni signos.
 // Ejemplo Colombia: 573001234567
-const WHATSAPP_NUMBER = "573045427075";
+const WHATSAPP_NUMBER = "573124268479";
 
 // Cuando tengas el link real de donación, lo pegas aquí.
 // Puede ser Wompi, Nequi, Bancolombia, PSE, PayPal, etc.
