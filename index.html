@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <header class="header">
+  <header class="header" id="header">
     <div class="container nav-container">
       <a href="#inicio" class="logo">
         <img src="assets/logo.png" alt="Fundación Transformando Vidas">
@@ -56,8 +56,27 @@
           </div>
         </div>
 
-        <div class="hero-image">
-          <img src="assets/hero.jpg" alt="Persona beneficiaria de la fundación">
+        <div class="hero-carousel" aria-label="Carrusel de imágenes principales">
+          <div class="carousel-slide active">
+            <img src="assets/hero.jpg" alt="Persona beneficiaria de la fundación">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="assets/hero-2.jpg" alt="Comunidad beneficiada por la fundación">
+          </div>
+
+          <div class="carousel-slide">
+            <img src="assets/hero-3.jpg" alt="Acciones sociales de la fundación">
+          </div>
+
+          <button class="carousel-btn prev" id="prevSlide" aria-label="Imagen anterior">‹</button>
+          <button class="carousel-btn next" id="nextSlide" aria-label="Imagen siguiente">›</button>
+
+          <div class="carousel-dots" id="carouselDots">
+            <button class="dot active" aria-label="Ver imagen 1"></button>
+            <button class="dot" aria-label="Ver imagen 2"></button>
+            <button class="dot" aria-label="Ver imagen 3"></button>
+          </div>
         </div>
       </div>
     </section>
@@ -285,7 +304,7 @@
         </a>
 
         <small>
-          Luego conectaremos este botón con Wompi, Nequi, PSE o una pasarela real de pago.
+          Próximamente conectaremos este botón con Wompi, Nequi, PSE o una pasarela real de pago.
         </small>
       </div>
     </section>

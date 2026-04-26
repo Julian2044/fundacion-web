@@ -7,6 +7,7 @@
   --light: #f8f8f4;
   --white: #ffffff;
   --shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  --header-height: 92px;
 }
 
 * {
@@ -17,6 +18,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
 }
 
 body {
@@ -43,24 +45,40 @@ a {
 /* Header */
 
 .header {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.96);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+  height: var(--header-height);
+  overflow: hidden;
+  box-shadow: 0 2px 22px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(12px);
+}
+
+.header.scrolled {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
 }
 
 .nav-container {
-  height: 95px;
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
 }
 
+.logo {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
 .logo img {
-  width: 180px;
+  width: 132px;
+  max-height: 82px;
   height: auto;
+  object-fit: contain;
 }
 
 .nav {
@@ -127,7 +145,7 @@ a {
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   padding: 55px 0 80px;
 }
 
@@ -195,26 +213,99 @@ a {
   transform: translateY(-2px);
 }
 
-.hero-image {
+.hero-carousel {
   height: 100%;
   min-height: 560px;
   position: relative;
   border-bottom-left-radius: 90px;
   overflow: hidden;
+  box-shadow: inset 30px 0 50px rgba(255, 255, 255, 0.3);
 }
 
-.hero-image img {
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.8s ease, transform 1.2s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 1;
+}
+
+.carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.hero-image::before {
+.hero-carousel::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.75) 18%, rgba(255,255,255,0) 45%);
-  z-index: 1;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0.78) 17%, rgba(255,255,255,0) 46%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--blue);
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-50%);
+  transition: 0.25s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.carousel-btn.prev {
+  left: 24px;
+}
+
+.carousel-btn.next {
+  right: 24px;
+}
+
+.carousel-dots {
+  position: absolute;
+  right: 32px;
+  bottom: 28px;
+  z-index: 4;
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.dot.active {
+  width: 32px;
+  background: var(--yellow);
 }
 
 .hero-shape {
@@ -633,13 +724,22 @@ a {
 /* Responsive */
 
 @media (max-width: 950px) {
+  :root {
+    --header-height: 84px;
+  }
+
   .menu-toggle {
     display: block;
   }
 
+  .logo img {
+    width: 118px;
+    max-height: 74px;
+  }
+
   .nav {
-    position: absolute;
-    top: 95px;
+    position: fixed;
+    top: var(--header-height);
     left: 0;
     width: 100%;
     background: var(--white);
@@ -670,13 +770,13 @@ a {
     padding: 45px 0 20px;
   }
 
-  .hero-image {
-    min-height: 420px;
+  .hero-carousel {
+    min-height: 430px;
     border-radius: 30px;
   }
 
-  .hero-image::before {
-    background: linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+  .hero-carousel::before {
+    background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
   }
 
   .services-grid {
@@ -721,16 +821,13 @@ a {
 }
 
 @media (max-width: 560px) {
-  .nav-container {
-    height: 82px;
+  :root {
+    --header-height: 78px;
   }
 
   .logo img {
-    width: 145px;
-  }
-
-  .nav {
-    top: 82px;
+    width: 106px;
+    max-height: 68px;
   }
 
   .hero-content h1 {
@@ -748,6 +845,29 @@ a {
   .btn-primary,
   .btn-secondary {
     width: 100%;
+  }
+
+  .hero-carousel {
+    min-height: 360px;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 28px;
+  }
+
+  .carousel-btn.prev {
+    left: 14px;
+  }
+
+  .carousel-btn.next {
+    right: 14px;
+  }
+
+  .carousel-dots {
+    right: 22px;
+    bottom: 20px;
   }
 
   .services-grid {

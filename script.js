@@ -1,3 +1,4 @@
+const header = document.getElementById("header");
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
@@ -16,16 +17,104 @@ navLinks.forEach((link) => {
 });
 
 /* =========================
+   HEADER AL HACER SCROLL
+========================= */
+
+window.addEventListener("scroll", () => {
+  if (!header) return;
+
+  if (window.scrollY > 20) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+/* =========================
+   CARRUSEL HERO
+========================= */
+
+const slides = document.querySelectorAll(".carousel-slide");
+const dots = document.querySelectorAll(".dot");
+const prevSlide = document.getElementById("prevSlide");
+const nextSlide = document.getElementById("nextSlide");
+
+let currentSlide = 0;
+let carouselInterval;
+
+function showSlide(index) {
+  if (!slides.length) return;
+
+  if (index >= slides.length) {
+    currentSlide = 0;
+  } else if (index < 0) {
+    currentSlide = slides.length - 1;
+  } else {
+    currentSlide = index;
+  }
+
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+
+  dots.forEach((dot) => {
+    dot.classList.remove("active");
+  });
+
+  slides[currentSlide].classList.add("active");
+
+  if (dots[currentSlide]) {
+    dots[currentSlide].classList.add("active");
+  }
+}
+
+function nextHeroSlide() {
+  showSlide(currentSlide + 1);
+}
+
+function prevHeroSlide() {
+  showSlide(currentSlide - 1);
+}
+
+function startCarousel() {
+  carouselInterval = setInterval(nextHeroSlide, 5000);
+}
+
+function resetCarousel() {
+  clearInterval(carouselInterval);
+  startCarousel();
+}
+
+if (slides.length) {
+  startCarousel();
+
+  if (nextSlide) {
+    nextSlide.addEventListener("click", () => {
+      nextHeroSlide();
+      resetCarousel();
+    });
+  }
+
+  if (prevSlide) {
+    prevSlide.addEventListener("click", () => {
+      prevHeroSlide();
+      resetCarousel();
+    });
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      showSlide(index);
+      resetCarousel();
+    });
+  });
+}
+
+/* =========================
    CONFIGURACIÓN GENERAL
 ========================= */
 
-// Cambia este número por el WhatsApp real de la fundación.
-// Debe ir con indicativo de país, sin espacios ni signos.
-// Ejemplo Colombia: 573001234567
-const WHATSAPP_NUMBER = "573124268479";
-
-// Cuando tengas el link real de donación, lo pegas aquí.
-// Puede ser Wompi, Nequi, Bancolombia, PSE, PayPal, etc.
+const WHATSAPP_NUMBER = "573000000000";
 const DONATION_LINK = "#";
 
 /* =========================
