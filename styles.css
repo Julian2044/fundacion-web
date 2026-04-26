@@ -64,7 +64,7 @@ height: var(--header-height);
 display: flex;
 align-items: center;
 justify-content: space-between;
-gap: 24px;
+gap: 22px;
 }
 
 .logo {
@@ -84,7 +84,7 @@ object-fit: contain;
 .nav {
 display: flex;
 align-items: center;
-gap: 34px;
+gap: 26px;
 font-size: 15px;
 font-weight: 700;
 }
@@ -123,6 +123,7 @@ padding: 16px 28px;
 border-radius: 14px;
 font-weight: 800;
 box-shadow: var(--shadow);
+white-space: nowrap;
 }
 
 .menu-toggle {
@@ -364,12 +365,7 @@ background: var(--green);
 transform: rotate(1.5deg);
 }
 
-/* ABOUT / NOSOTROS */
-
-.about {
-padding: 70px 0 45px;
-background: var(--white);
-}
+/* SECCIONES GENERALES */
 
 .section-title {
 text-align: center;
@@ -400,6 +396,21 @@ margin-bottom: 16px;
 color: #333;
 line-height: 1.6;
 font-size: 17px;
+}
+
+.blue-bg {
+background: var(--blue);
+}
+
+.green-bg {
+background: var(--green);
+}
+
+/* ABOUT / NOSOTROS */
+
+.about {
+padding: 70px 0 65px;
+background: var(--white);
 }
 
 .about-grid {
@@ -451,7 +462,9 @@ z-index: 2;
 }
 
 .about-icon::after,
-.stat-icon::after {
+.policy-icon::after,
+.donation-card-icon::after,
+.timeline-marker::after {
 content: "";
 position: absolute;
 width: 34px;
@@ -462,14 +475,6 @@ background: var(--yellow);
 border-radius: 100%;
 transform: rotate(-40deg);
 z-index: -1;
-}
-
-.blue-bg {
-background: var(--blue);
-}
-
-.green-bg {
-background: var(--green);
 }
 
 .about-card h3 {
@@ -506,61 +511,110 @@ font-size: 13px;
 font-weight: 800;
 }
 
-/* STATS */
+/* POLÍTICAS */
 
-.stats {
-padding: 35px 0 70px;
-background: var(--white);
+.policies {
+padding: 80px 0;
+background:
+radial-gradient(circle at top right, rgba(246, 195, 59, 0.14), transparent 34%),
+linear-gradient(180deg, #ffffff 0%, #f8f8f4 100%);
 }
 
-.stats-box {
-background: #fffaf0;
-border-radius: 24px;
-box-shadow: var(--shadow);
-padding: 28px 55px;
+.policies-grid {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 24px;
+grid-template-columns: repeat(2, 1fr);
+gap: 28px;
+max-width: 980px;
+margin: 0 auto;
 }
 
-.stat-item {
+.policy-card {
+background: var(--white);
+border-radius: 30px;
+padding: 32px;
 display: flex;
-align-items: center;
-justify-content: center;
-gap: 20px;
-border-right: 1px solid #e1d8c7;
+gap: 22px;
+align-items: flex-start;
+box-shadow: var(--shadow);
+border: 1px solid rgba(0, 63, 143, 0.08);
+position: relative;
+overflow: hidden;
+transition: 0.25s ease;
 }
 
-.stat-item:last-child {
-border-right: none;
+.policy-card::before {
+content: "";
+position: absolute;
+left: 0;
+top: 0;
+width: 8px;
+height: 100%;
+background: linear-gradient(180deg, var(--green), var(--blue));
 }
 
-.stat-icon {
-width: 70px;
-height: 70px;
+.policy-card::after {
+content: "";
+position: absolute;
+right: -60px;
+top: -60px;
+width: 150px;
+height: 150px;
+background: rgba(246, 195, 59, 0.16);
+border-radius: 50%;
+}
+
+.policy-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 24px 60px rgba(0, 63, 143, 0.12);
+}
+
+.policy-icon {
+min-width: 72px;
+width: 72px;
+height: 72px;
+background: var(--blue);
+color: var(--white);
+border-radius: 50%;
 display: grid;
 place-items: center;
-border-radius: 50%;
-color: var(--white);
-font-size: 28px;
+font-size: 30px;
 position: relative;
+z-index: 2;
 }
 
-.stat-item strong {
-display: block;
-font-size: 44px;
-line-height: 1;
-color: var(--blue);
+.policy-content {
+position: relative;
+z-index: 2;
 }
 
-.stat-item:nth-child(2) strong {
+.policy-content span {
+display: inline-block;
 color: var(--green);
+font-size: 13px;
+font-weight: 900;
+text-transform: uppercase;
+letter-spacing: 0.6px;
+margin-bottom: 10px;
 }
 
-.stat-item p {
+.policy-content h3 {
+color: var(--blue);
+font-size: 25px;
+line-height: 1.15;
+margin-bottom: 12px;
+}
+
+.policy-content p {
+color: var(--gray);
 font-size: 15px;
-font-weight: 800;
-color: #222;
+line-height: 1.7;
+margin-bottom: 16px;
+}
+
+.policy-content strong {
+color: var(--blue);
+font-size: 15px;
+font-weight: 900;
 }
 
 /* PROJECTS */
@@ -666,19 +720,6 @@ display: grid;
 place-items: center;
 font-weight: 900;
 box-shadow: 0 16px 34px rgba(0, 63, 143, 0.2);
-}
-
-.timeline-marker::after {
-content: "";
-position: absolute;
-width: 30px;
-height: 16px;
-right: -8px;
-bottom: 5px;
-background: var(--yellow);
-border-radius: 999px;
-transform: rotate(-35deg);
-z-index: -1;
 }
 
 .timeline-card {
@@ -1004,19 +1045,6 @@ border-radius: 50%;
 position: relative;
 }
 
-.donation-card-icon::after {
-content: "";
-position: absolute;
-width: 30px;
-height: 16px;
-right: -8px;
-bottom: 6px;
-background: var(--yellow);
-border-radius: 999px;
-transform: rotate(-35deg);
-z-index: -1;
-}
-
 .donation-card-content h3 {
 color: var(--blue);
 font-size: 24px;
@@ -1138,6 +1166,17 @@ font-size: 14px;
 
 /* RESPONSIVE */
 
+@media (max-width: 1020px) {
+.nav {
+gap: 20px;
+font-size: 14px;
+}
+
+.btn-donar {
+padding: 15px 22px;
+}
+}
+
 @media (max-width: 950px) {
 :root {
 --header-height: 84px;
@@ -1159,8 +1198,9 @@ left: 0;
 width: 100%;
 background: var(--white);
 flex-direction: column;
+align-items: flex-start;
 gap: 0;
-padding: 20px;
+padding: 20px 8%;
 display: none;
 box-shadow: 0 20px 30px rgba(0,0,0,0.08);
 }
@@ -1171,6 +1211,10 @@ display: flex;
 
 .nav a {
 padding: 14px 0;
+}
+
+.nav a::after {
+bottom: 8px;
 }
 
 .btn-donar {
@@ -1202,6 +1246,10 @@ background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0))
 grid-template-columns: repeat(2, 1fr);
 }
 
+.policies-grid {
+grid-template-columns: 1fr;
+}
+
 .timeline-gallery::before {
 left: 28px;
 }
@@ -1230,22 +1278,6 @@ padding: 34px;
 
 .featured-news-image {
 min-height: 320px;
-}
-
-.stats-box {
-grid-template-columns: 1fr;
-padding: 30px;
-}
-
-.stat-item {
-border-right: none;
-border-bottom: 1px solid #e1d8c7;
-padding-bottom: 24px;
-}
-
-.stat-item:last-child {
-border-bottom: none;
-padding-bottom: 0;
 }
 
 .footer-content {
@@ -1308,17 +1340,24 @@ bottom: 20px;
 grid-template-columns: 1fr;
 }
 
-.stat-item {
-justify-content: flex-start;
-}
-
 .projects,
 .gallery,
 .news,
 .contact,
 .donation-section,
-.about {
+.about,
+.policies {
 padding: 60px 0;
+}
+
+.policy-card {
+flex-direction: column;
+padding: 28px 24px;
+border-radius: 26px;
+}
+
+.policy-content h3 {
+font-size: 22px;
 }
 
 .timeline-gallery::before {

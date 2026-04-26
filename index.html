@@ -1,480 +1,506 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fundación Transformando Vidas</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fundación Transformando Vidas</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="#inicio" class="logo">
-        <img src="assets/logo.png" alt="Fundación Transformando Vidas">
-      </a>
-
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        ☰
-      </button>
-
-      <nav class="nav" id="nav">
-        <a href="#inicio" class="active">Inicio</a>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#galeria">Galería</a>
-        <a href="#noticias">Noticias</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-
-      <a href="#donar" class="btn-donar">♥ Donar</a>
-    </div>
-  </header>
-
-  <main>
-
-    <section class="hero" id="inicio">
-      <div class="hero-shape"></div>
-
-      <div class="container hero-container">
-        <div class="hero-content">
-          <h1>
-            Transformamos <br>
-            <span class="green">vidas</span> con esperanza <br>
-            <span class="blue">y acción social.</span>
-            <span class="heart">♡</span>
-          </h1>
-
-          <p>
-            Trabajamos por el bienestar, la inclusión y el desarrollo
-            de las comunidades del Valle del Chocó.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#nosotros" class="btn-primary">👥 Conoce más</a>
-            <a href="#donar" class="btn-secondary">♡ Haz tu donación</a>
-          </div>
-        </div>
-
-        <div class="hero-carousel" aria-label="Carrusel de imágenes principales">
-          <div class="carousel-slide active">
-            <img src="assets/hero.jpg" alt="Persona beneficiaria de la fundación">
-          </div>
-
-          <div class="carousel-slide">
-            <img src="assets/hero-2.jpg" alt="Comunidad beneficiada por la fundación">
-          </div>
-
-          <div class="carousel-slide">
-            <img src="assets/hero-3.jpg" alt="Acciones sociales de la fundación">
-          </div>
-
-          <button class="carousel-btn prev" id="prevSlide" aria-label="Imagen anterior">‹</button>
-          <button class="carousel-btn next" id="nextSlide" aria-label="Imagen siguiente">›</button>
-
-          <div class="carousel-dots" id="carouselDots">
-            <button class="dot active" aria-label="Ver imagen 1"></button>
-            <button class="dot" aria-label="Ver imagen 2"></button>
-            <button class="dot" aria-label="Ver imagen 3"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="wave-section">
-      <div class="wave-blue"></div>
-      <div class="wave-green"></div>
-    </section>
-
-    <section class="about" id="nosotros">
-      <div class="container">
-        <div class="section-title">
-          <span class="section-kicker">Nuestra esencia</span>
-          <h2>Nosotros</h2>
-          <p>
-            Somos la Fundación Transformando Vidas del Valle Chocó, una entidad
-            sin ánimo de lucro comprometida con promover el mejoramiento de la
-            calidad de vida de comunidades vulnerables del Pacífico colombiano.
-          </p>
-        </div>
-
-        <div class="about-grid">
-          <article class="about-card">
-            <div class="about-icon blue-bg">♡</div>
-            <h3>Nosotros</h3>
-            <p>
-              Trabajamos por niñas, niños, jóvenes, mujeres, personas con
-              discapacidad, familias, comunidades afrocolombianas e indígenas,
-              impulsando acciones que transforman vidas desde el territorio.
-            </p>
-          </article>
-
-          <article class="about-card">
-            <div class="about-icon green-bg">✦</div>
-            <h3>Misión</h3>
-            <p>
-              Contribuir al mejoramiento de la calidad de vida de las comunidades
-              del Pacífico colombiano mediante programas sociales, productivos,
-              educativos, ambientales y culturales con enfoque diferencial e intercultural.
-            </p>
-          </article>
-
-          <article class="about-card">
-            <div class="about-icon blue-bg">⌂</div>
-            <h3>Visión</h3>
-            <p>
-              Ser una fundación reconocida a nivel local, nacional e internacional
-              por liderar procesos de inclusión social, desarrollo comunitario,
-              sostenibilidad territorial y construcción de oportunidades.
-            </p>
-          </article>
-
-          <article class="about-card values-card">
-            <div class="about-icon green-bg">✓</div>
-            <h3>Nuestros valores</h3>
-
-            <div class="values-list">
-              <span>Inclusión</span>
-              <span>Solidaridad</span>
-              <span>Equidad</span>
-              <span>Diversidad cultural</span>
-              <span>Participación</span>
-              <span>Transparencia</span>
-              <span>Sostenibilidad</span>
-              <span>Derechos humanos</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="stats">
-      <div class="container stats-box">
-        <div class="stat-item">
-          <div class="stat-icon green-bg">👥</div>
-          <div>
-            <strong>+500</strong>
-            <p>familias impactadas</p>
-          </div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-icon blue-bg">⌂</div>
-          <div>
-            <strong>12</strong>
-            <p>proyectos comunitarios</p>
-          </div>
-        </div>
-
-        <div class="stat-item">
-          <div class="stat-icon green-bg">🤝</div>
-          <div>
-            <strong>8</strong>
-            <p>alianzas activas</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="projects" id="proyectos">
-      <div class="container">
-        <div class="section-title">
-          <h2>Nuestros proyectos</h2>
-          <p>
-            Desarrollamos iniciativas enfocadas en educación, bienestar,
-            apoyo social y fortalecimiento comunitario.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-image">
-              <img src="assets/proyecto-1.jpg" alt="Proyecto educativo de la fundación">
-            </div>
-
-            <div class="project-content">
-              <span>Educación</span>
-              <h3>Formación para niños y jóvenes</h3>
-              <p>
-                Creamos espacios de aprendizaje, acompañamiento y crecimiento
-                para comunidades vulnerables.
-              </p>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img src="assets/proyecto-2.jpg" alt="Jornada de salud y bienestar">
-            </div>
-
-            <div class="project-content">
-              <span>Salud y bienestar</span>
-              <h3>Jornadas de apoyo comunitario</h3>
-              <p>
-                Promovemos el bienestar físico, emocional y social de las familias.
-              </p>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-image">
-              <img src="assets/proyecto-3.jpg" alt="Proyecto de desarrollo comunitario">
-            </div>
-
-            <div class="project-content">
-              <span>Desarrollo social</span>
-              <h3>Comunidades con oportunidades</h3>
-              <p>
-                Impulsamos acciones que fortalecen la autonomía y la calidad de vida.
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="gallery" id="galeria">
-      <div class="container">
-        <div class="section-title">
-          <h2>Galería</h2>
-          <p>
-            Una línea del tiempo con momentos especiales de nuestras actividades,
-            encuentros y celebraciones comunitarias.
-          </p>
-        </div>
-
-        <div class="timeline-gallery">
-
-          <article class="timeline-item">
-            <div class="timeline-marker">01</div>
-
-            <div class="timeline-card">
-              <div class="timeline-content">
-                <p class="gallery-event-date">5 de noviembre de 2025</p>
-                <h3>Día de la Cuidadora</h3>
-                <p class="gallery-event-text">
-                  Reconocimiento y homenaje a las cuidadoras, resaltando su entrega,
-                  compromiso y papel fundamental dentro de la comunidad.
-                </p>
-              </div>
-
-              <div class="event-carousel" data-carousel="cuidadora">
-                <div class="event-carousel-track">
-                  <div class="event-slide active"><img src="assets/cuidadora-1.jpg" alt="Día de la Cuidadora 1"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-2.jpg" alt="Día de la Cuidadora 2"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-3.jpg" alt="Día de la Cuidadora 3"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-4.jpg" alt="Día de la Cuidadora 4"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-5.jpg" alt="Día de la Cuidadora 5"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-6.jpg" alt="Día de la Cuidadora 6"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-7.jpg" alt="Día de la Cuidadora 7"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-8.jpg" alt="Día de la Cuidadora 8"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-9.jpg" alt="Día de la Cuidadora 9"></div>
-                  <div class="event-slide"><img src="assets/cuidadora-10.jpg" alt="Día de la Cuidadora 10"></div>
-                </div>
-
-                <button class="event-carousel-btn event-prev" type="button" aria-label="Foto anterior">‹</button>
-                <button class="event-carousel-btn event-next" type="button" aria-label="Foto siguiente">›</button>
-
-                <div class="event-carousel-count">
-                  <span class="current-photo">1</span> / 10
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-marker">02</div>
-
-            <div class="timeline-card">
-              <div class="timeline-content">
-                <p class="gallery-event-date">3 de diciembre de 2025</p>
-                <h3>Día Internacional de la Discapacidad</h3>
-                <p class="gallery-event-text">
-                  Una jornada para reconocer la inclusión, la participación y el valor
-                  de las personas con discapacidad en nuestra comunidad.
-                </p>
-              </div>
-
-              <div class="event-carousel" data-carousel="discapacidad">
-                <div class="event-carousel-track">
-                  <div class="event-slide active"><img src="assets/discapacidad-1.jpg" alt="Día Internacional de la Discapacidad 1"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-2.jpg" alt="Día Internacional de la Discapacidad 2"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-3.jpg" alt="Día Internacional de la Discapacidad 3"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-4.jpg" alt="Día Internacional de la Discapacidad 4"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-5.jpg" alt="Día Internacional de la Discapacidad 5"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-6.jpg" alt="Día Internacional de la Discapacidad 6"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-7.jpg" alt="Día Internacional de la Discapacidad 7"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-8.jpg" alt="Día Internacional de la Discapacidad 8"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-9.jpg" alt="Día Internacional de la Discapacidad 9"></div>
-                  <div class="event-slide"><img src="assets/discapacidad-10.jpg" alt="Día Internacional de la Discapacidad 10"></div>
-                </div>
-
-                <button class="event-carousel-btn event-prev" type="button" aria-label="Foto anterior">‹</button>
-                <button class="event-carousel-btn event-next" type="button" aria-label="Foto siguiente">›</button>
-
-                <div class="event-carousel-count">
-                  <span class="current-photo">1</span> / 10
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item">
-            <div class="timeline-marker">03</div>
-
-            <div class="timeline-card">
-              <div class="timeline-content">
-                <p class="gallery-event-date">20 de diciembre de 2025</p>
-                <h3>Celebración de Navidad</h3>
-                <p class="gallery-event-text">
-                  Un encuentro para compartir alegría, unión y esperanza con las familias
-                  y personas beneficiarias de la fundación.
-                </p>
-              </div>
-
-              <div class="event-carousel" data-carousel="navidad">
-                <div class="event-carousel-track">
-                  <div class="event-slide active"><img src="assets/navidad-1.jpg" alt="Celebración de Navidad 1"></div>
-                  <div class="event-slide"><img src="assets/navidad-2.jpg" alt="Celebración de Navidad 2"></div>
-                  <div class="event-slide"><img src="assets/navidad-3.jpg" alt="Celebración de Navidad 3"></div>
-                  <div class="event-slide"><img src="assets/navidad-4.jpg" alt="Celebración de Navidad 4"></div>
-                  <div class="event-slide"><img src="assets/navidad-5.jpg" alt="Celebración de Navidad 5"></div>
-                  <div class="event-slide"><img src="assets/navidad-6.jpg" alt="Celebración de Navidad 6"></div>
-                  <div class="event-slide"><img src="assets/navidad-7.jpg" alt="Celebración de Navidad 7"></div>
-                  <div class="event-slide"><img src="assets/navidad-8.jpg" alt="Celebración de Navidad 8"></div>
-                  <div class="event-slide"><img src="assets/navidad-9.jpg" alt="Celebración de Navidad 9"></div>
-                  <div class="event-slide"><img src="assets/navidad-10.jpg" alt="Celebración de Navidad 10"></div>
-                </div>
-
-                <button class="event-carousel-btn event-prev" type="button" aria-label="Foto anterior">‹</button>
-                <button class="event-carousel-btn event-next" type="button" aria-label="Foto siguiente">›</button>
-
-                <div class="event-carousel-count">
-                  <span class="current-photo">1</span> / 10
-                </div>
-              </div>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="news" id="noticias">
-      <div class="container">
-        <div class="section-title">
-          <h2>Noticias</h2>
-          <p>
-            Conoce los proyectos e iniciativas que estamos construyendo para seguir
-            transformando vidas en El Valle, Bahía Solano, Chocó.
-          </p>
-        </div>
-
-        <article class="featured-news">
-          <div class="featured-news-content">
-            <span class="news-badge">Proyecto próximamente</span>
-
-            <h3>Escuela de Oidoras: Hacia el Empoderamiento de Niñas y Mujeres</h3>
-
-            <p>
-              Un proyecto que fortalece el liderazgo, la autonomía y la prevención
-              de violencias en niñas, adolescentes y mujeres afrocolombianas e
-              indígenas Embera Dobida de El Valle, a través de formación comunitaria,
-              identidad cultural y autonomía económica.
-            </p>
-
-            <div class="news-tags">
-              <span>Liderazgo femenino</span>
-              <span>Identidad cultural</span>
-              <span>Autonomía económica</span>
-            </div>
-
-            <a href="#contacto" class="news-button">
-              Conocer más sobre el proyecto
-            </a>
-          </div>
-
-          <div class="featured-news-image">
-            <img src="assets/noticia-oidoras.jpg" alt="Escuela de Oidoras - Fundación Transformando Vidas">
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="donation-section" id="donar">
-      <div class="container donation-box">
-        <span class="donation-label">Donación segura con ePayco</span>
-
-        <h2>Haz parte del cambio</h2>
-
-        <p>
-          Tu aporte nos ayuda a seguir impulsando educación, bienestar,
-          inclusión y apoyo social para las comunidades de El Valle,
-          Bahía Solano, Chocó.
-        </p>
-
-        <div class="donation-card">
-          <div class="donation-card-icon">♥</div>
-
-          <div class="donation-card-content">
-            <h3>Realiza tu donación en línea</h3>
-            <p>
-              Al hacer clic en el botón serás dirigido a la pasarela de pagos
-              segura de ePayco, donde podrás completar tu aporte.
-            </p>
-          </div>
-        </div>
-
-        <a href="#donar" class="btn-primary donation-pay-button">
-          Donar ahora con ePayco
-        </a>
-
-        <small>
-          Los pagos son procesados de forma externa por ePayco. La Fundación
-          Transformando Vidas no almacena datos bancarios ni información de tarjetas.
-        </small>
-      </div>
-    </section>
-
-    <section class="contact" id="contacto">
-      <div class="container contact-box">
-        <div class="contact-info">
-          <span class="contact-label">Hablemos</span>
-
-          <h2>Contáctanos</h2>
-
-          <p>
-            Si quieres conocer más sobre la Fundación Transformando Vidas,
-            apoyar nuestros proyectos o vincularte como aliado, escríbenos.
-          </p>
-
-          <ul>
-            <li><strong>Fundación:</strong> Fundación Transformando Vidas</li>
-            <li><strong>Teléfono / WhatsApp:</strong> 312 426 8479</li>
-            <li><strong>Correo:</strong> fvidasdelvallechoco@gmail.com</li>
-            <li><strong>Ubicación:</strong> El Valle, Bahía Solano, Chocó.</li>
-          </ul>
-        </div>
-
-        <form class="contact-form">
-          <input type="text" placeholder="Nombre completo">
-          <input type="email" placeholder="Correo electrónico">
-          <input type="text" placeholder="Asunto">
-          <textarea placeholder="Mensaje"></textarea>
-          <button type="submit">Enviar mensaje por WhatsApp</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-content">
-      <p>© 2026 Fundación Transformando Vidas.</p>
-      <p>El Valle, Bahía Solano, Chocó.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<header class="header" id="header">
+<div class="container nav-container">
+<a href="#inicio" class="logo">
+<img src="assets/logo.png" alt="Fundación Transformando Vidas">
+</a>
+
+<button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+☰
+</button>
+
+<nav class="nav" id="nav">
+<a href="#inicio" class="active">Inicio</a>
+<a href="#nosotros">Nosotros</a>
+<a href="#politicas">Políticas</a>
+<a href="#proyectos">Proyectos</a>
+<a href="#galeria">Galería</a>
+<a href="#noticias">Noticias</a>
+<a href="#contacto">Contacto</a>
+</nav>
+
+<a href="#donar" class="btn-donar">♥ Donar</a>
+</div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+<div class="hero-shape"></div>
+
+<div class="container hero-container">
+<div class="hero-content">
+<h1>
+Transformamos <br>
+<span class="green">vidas</span> con esperanza <br>
+<span class="blue">y acción social.</span>
+<span class="heart">♡</span>
+</h1>
+
+<p>
+Trabajamos por el bienestar, la inclusión y el desarrollo
+de las comunidades del Valle del Chocó.
+</p>
+
+<div class="hero-buttons">
+<a href="#nosotros" class="btn-primary">👥 Conoce más</a>
+<a href="#donar" class="btn-secondary">♡ Haz tu donación</a>
+</div>
+</div>
+
+<div class="hero-carousel" aria-label="Carrusel de imágenes principales">
+<div class="carousel-slide active">
+<img src="assets/hero.jpg" alt="Persona beneficiaria de la fundación">
+</div>
+
+<div class="carousel-slide">
+<img src="assets/hero-2.jpg" alt="Comunidad beneficiada por la fundación">
+</div>
+
+<div class="carousel-slide">
+<img src="assets/hero-3.jpg" alt="Acciones sociales de la fundación">
+</div>
+
+<button class="carousel-btn prev" id="prevSlide" aria-label="Imagen anterior">‹</button>
+<button class="carousel-btn next" id="nextSlide" aria-label="Imagen siguiente">›</button>
+
+<div class="carousel-dots" id="carouselDots">
+<button class="dot active" aria-label="Ver imagen 1"></button>
+<button class="dot" aria-label="Ver imagen 2"></button>
+<button class="dot" aria-label="Ver imagen 3"></button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="wave-section">
+<div class="wave-blue"></div>
+<div class="wave-green"></div>
+</section>
+
+<section class="about" id="nosotros">
+<div class="container">
+<div class="section-title">
+<span class="section-kicker">Nuestra esencia</span>
+<h2>Nosotros</h2>
+<p>
+Somos la Fundación Transformando Vidas del Valle Chocó, una entidad
+sin ánimo de lucro comprometida con promover el mejoramiento de la
+calidad de vida de comunidades vulnerables del Pacífico colombiano.
+</p>
+</div>
+
+<div class="about-grid">
+<article class="about-card">
+<div class="about-icon blue-bg">♡</div>
+<h3>Nosotros</h3>
+<p>
+Trabajamos por niñas, niños, jóvenes, mujeres, personas con
+discapacidad, familias, comunidades afrocolombianas e indígenas,
+impulsando acciones que transforman vidas desde el territorio.
+</p>
+</article>
+
+<article class="about-card">
+<div class="about-icon green-bg">✦</div>
+<h3>Misión</h3>
+<p>
+Contribuir al mejoramiento de la calidad de vida de las comunidades
+del Pacífico colombiano mediante programas sociales, productivos,
+educativos, ambientales y culturales con enfoque diferencial e intercultural.
+</p>
+</article>
+
+<article class="about-card">
+<div class="about-icon blue-bg">⌂</div>
+<h3>Visión</h3>
+<p>
+Ser una fundación reconocida a nivel local, nacional e internacional
+por liderar procesos de inclusión social, desarrollo comunitario,
+sostenibilidad territorial y construcción de oportunidades.
+</p>
+</article>
+
+<article class="about-card values-card">
+<div class="about-icon green-bg">✓</div>
+<h3>Nuestros valores</h3>
+
+<div class="values-list">
+<span>Inclusión</span>
+<span>Solidaridad</span>
+<span>Equidad</span>
+<span>Diversidad cultural</span>
+<span>Participación</span>
+<span>Transparencia</span>
+<span>Sostenibilidad</span>
+<span>Derechos humanos</span>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="policies" id="politicas">
+<div class="container">
+<div class="section-title">
+<span class="section-kicker">Documentos institucionales</span>
+<h2>Políticas de la fundación</h2>
+<p>
+Consulta nuestras políticas institucionales para conocer los lineamientos
+de transparencia, integridad, protección de datos personales y uso de imagen.
+</p>
+</div>
+
+<div class="policies-grid">
+<a
+href="assets/documentos/politica-integridad.pdf"
+class="policy-card"
+target="_blank"
+rel="noopener"
+>
+<div class="policy-icon">📄</div>
+
+<div class="policy-content">
+<span>Política institucional</span>
+<h3>Integridad, transparencia y prevención LA/FT</h3>
+<p>
+Lineamientos para fortalecer la gestión ética, la transparencia,
+la prevención de riesgos y el manejo responsable de recursos.
+</p>
+<strong>Ver documento</strong>
+</div>
+</a>
+
+<a
+href="assets/documentos/politica-datos-personales.pdf"
+class="policy-card"
+target="_blank"
+rel="noopener"
+>
+<div class="policy-icon">🔐</div>
+
+<div class="policy-content">
+<span>Protección de datos</span>
+<h3>Tratamiento de datos personales, imagen, video y audio</h3>
+<p>
+Lineamientos sobre protección de información personal, autorización
+de uso de imagen, videos, voz, testimonios y material audiovisual.
+</p>
+<strong>Ver documento</strong>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="projects" id="proyectos">
+<div class="container">
+<div class="section-title">
+<h2>Nuestros proyectos</h2>
+<p>
+Desarrollamos iniciativas enfocadas en educación, bienestar,
+apoyo social y fortalecimiento comunitario.
+</p>
+</div>
+
+<div class="projects-grid">
+<article class="project-card">
+<div class="project-image">
+<img src="assets/proyecto-1.jpg" alt="Proyecto educativo de la fundación">
+</div>
+
+<div class="project-content">
+<span>Educación</span>
+<h3>Formación para niños y jóvenes</h3>
+<p>
+Creamos espacios de aprendizaje, acompañamiento y crecimiento
+para comunidades vulnerables.
+</p>
+</div>
+</article>
+
+<article class="project-card">
+<div class="project-image">
+<img src="assets/proyecto-2.jpg" alt="Jornada de salud y bienestar">
+</div>
+
+<div class="project-content">
+<span>Salud y bienestar</span>
+<h3>Jornadas de apoyo comunitario</h3>
+<p>
+Promovemos el bienestar físico, emocional y social de las familias.
+</p>
+</div>
+</article>
+
+<article class="project-card">
+<div class="project-image">
+<img src="assets/proyecto-3.jpg" alt="Proyecto de desarrollo comunitario">
+</div>
+
+<div class="project-content">
+<span>Desarrollo social</span>
+<h3>Comunidades con oportunidades</h3>
+<p>
+Impulsamos acciones que fortalecen la autonomía y la calidad de vida.
+</p>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="gallery" id="galeria">
+<div class="container">
+<div class="section-title">
+<h2>Galería</h2>
+<p>
+Una línea del tiempo con momentos especiales de nuestras actividades,
+encuentros y celebraciones comunitarias.
+</p>
+</div>
+
+<div class="timeline-gallery">
+
+<article class="timeline-item">
+<div class="timeline-marker">01</div>
+
+<div class="timeline-card">
+<div class="timeline-content">
+<p class="gallery-event-date">5 de noviembre de 2025</p>
+<h3>Día de la Cuidadora</h3>
+<p class="gallery-event-text">
+Reconocimiento y homenaje a las cuidadoras, resaltando su entrega,
+compromiso y papel fundamental dentro de la comunidad.
+</p>
+</div>
+
+<div class="event-carousel" data-carousel="cuidadora">
+<div class="event-carousel-track">
+<div class="event-slide active"><img src="assets/cuidadora-1.jpg" alt="Día de la Cuidadora 1"></div>
+<div class="event-slide"><img src="assets/cuidadora-2.jpg" alt="Día de la Cuidadora 2"></div>
+<div class="event-slide"><img src="assets/cuidadora-3.jpg" alt="Día de la Cuidadora 3"></div>
+<div class="event-slide"><img src="assets/cuidadora-4.jpg" alt="Día de la Cuidadora 4"></div>
+<div class="event-slide"><img src="assets/cuidadora-5.jpg" alt="Día de la Cuidadora 5"></div>
+<div class="event-slide"><img src="assets/cuidadora-6.jpg" alt="Día de la Cuidadora 6"></div>
+<div class="event-slide"><img src="assets/cuidadora-7.jpg" alt="Día de la Cuidadora 7"></div>
+<div class="event-slide"><img src="assets/cuidadora-8.jpg" alt="Día de la Cuidadora 8"></div>
+<div class="event-slide"><img src="assets/cuidadora-9.jpg" alt="Día de la Cuidadora 9"></div>
+<div class="event-slide"><img src="assets/cuidadora-10.jpg" alt="Día de la Cuidadora 10"></div>
+</div>
+
+<button class="event-carousel-btn event-prev" type="button" aria-label="Foto anterior">‹</button>
+<button class="event-carousel-btn event-next" type="button" aria-label="Foto siguiente">›</button>
+
+<div class="event-carousel-count">
+<span class="current-photo">1</span> / 10
+</div>
+</div>
+</div>
+</article>
+
+<article class="timeline-item">
+<div class="timeline-marker">02</div>
+
+<div class="timeline-card">
+<div class="timeline-content">
+<p class="gallery-event-date">3 de diciembre de 2025</p>
+<h3>Día Internacional de la Discapacidad</h3>
+<p class="gallery-event-text">
+Una jornada para reconocer la inclusión, la participación y el valor
+de las personas con discapacidad en nuestra comunidad.
+</p>
+</div>
+
+<div class="event-carousel" data-carousel="discapacidad">
+<div class="event-carousel-track">
+<div class="event-slide active"><img src="assets/discapacidad-1.jpg" alt="Día Internacional de la Discapacidad 1"></div>
+<div class="event-slide"><img src="assets/discapacidad-2.jpg" alt="Día Internacional de la Discapacidad 2"></div>
+<div class="event-slide"><img src="assets/discapacidad-3.jpg" alt="Día Internacional de la Discapacidad 3"></div>
+<div class="event-slide"><img src="assets/discapacidad-4.jpg" alt="Día Internacional de la Discapacidad 4"></div>
+<div class="event-slide"><img src="assets/discapacidad-5.jpg" alt="Día Internacional de la Discapacidad 5"></div>
+<div class="event-slide"><img src="assets/discapacidad-6.jpg" alt="Día Internacional de la Discapacidad 6"></div>
+<div class="event-slide"><img src="assets/discapacidad-7.jpg" alt="Día Internacional de la Discapacidad 7"></div>
+<div class="event-slide"><img src="assets/discapacidad-8.jpg" alt="Día Internacional de la Discapacidad 8"></div>
+<div class="event-slide"><img src="assets/discapacidad-9.jpg" alt="Día Internacional de la Discapacidad 9"></div>
+<div class="event-slide"><img src="assets/discapacidad-10.jpg" alt="Día Internacional de la Discapacidad 10"></div>
+</div>
+
+<button class="event-carousel-btn event-prev" type="button" aria-label="Foto anterior">‹</button>
+<button class="event-carousel-btn event-next" type="button" aria-label="Foto siguiente">›</button>
+
+<div class="event-carousel-count">
+<span class="current-photo">1</span> / 10
+</div>
+</div>
+</div>
+</article>
+
+<article class="timeline-item">
+<div class="timeline-marker">03</div>
+
+<div class="timeline-card">
+<div class="timeline-content">
+<p class="gallery-event-date">20 de diciembre de 2025</p>
+<h3>Celebración de Navidad</h3>
+<p class="gallery-event-text">
+Un encuentro para compartir alegría, unión y esperanza con las familias
+y personas beneficiarias de la fundación.
+</p>
+</div>
+
+<div class="event-carousel" data-carousel="navidad">
+<div class="event-carousel-track">
+<div class="event-slide active"><img src="assets/navidad-1.jpg" alt="Celebración de Navidad 1"></div>
+<div class="event-slide"><img src="assets/navidad-2.jpg" alt="Celebración de Navidad 2"></div>
+<div class="event-slide"><img src="assets/navidad-3.jpg" alt="Celebración de Navidad 3"></div>
+<div class="event-slide"><img src="assets/navidad-4.jpg" alt="Celebración de Navidad 4"></div>
+<div class="event-slide"><img src="assets/navidad-5.jpg" alt="Celebración de Navidad 5"></div>
+<div class="event-slide"><img src="assets/navidad-6.jpg" alt="Celebración de Navidad 6"></div>
+<div class="event-slide"><img src="assets/navidad-7.jpg" alt="Celebración de Navidad 7"></div>
+<div class="event-slide"><img src="assets/navidad-8.jpg" alt="Celebración de Navidad 8"></div>
+<div class="event-slide"><img src="assets/navidad-9.jpg" alt="Celebración de Navidad 9"></div>
+<div class="event-slide"><img src="assets/navidad-10.jpg" alt="Celebración de Navidad 10"></div>
+</div>
+
+<button class="event-carousel-btn event-prev" type="button" aria-label="Foto anterior">‹</button>
+<button class="event-carousel-btn event-next" type="button" aria-label="Foto siguiente">›</button>
+
+<div class="event-carousel-count">
+<span class="current-photo">1</span> / 10
+</div>
+</div>
+</div>
+</article>
+
+</div>
+</div>
+</section>
+
+<section class="news" id="noticias">
+<div class="container">
+<div class="section-title">
+<h2>Noticias</h2>
+<p>
+Conoce los proyectos e iniciativas que estamos construyendo para seguir
+transformando vidas en El Valle, Bahía Solano, Chocó.
+</p>
+</div>
+
+<article class="featured-news">
+<div class="featured-news-content">
+<span class="news-badge">Proyecto próximamente</span>
+
+<h3>Escuela de Oidoras: Hacia el Empoderamiento de Niñas y Mujeres</h3>
+
+<p>
+Un proyecto que fortalece el liderazgo, la autonomía y la prevención
+de violencias en niñas, adolescentes y mujeres afrocolombianas e
+indígenas Embera Dobida de El Valle, a través de formación comunitaria,
+identidad cultural y autonomía económica.
+</p>
+
+<div class="news-tags">
+<span>Liderazgo femenino</span>
+<span>Identidad cultural</span>
+<span>Autonomía económica</span>
+</div>
+
+<a href="#contacto" class="news-button">
+Conocer más sobre el proyecto
+</a>
+</div>
+
+<div class="featured-news-image">
+<img src="assets/noticia-oidoras.jpg" alt="Escuela de Oidoras - Fundación Transformando Vidas">
+</div>
+</article>
+</div>
+</section>
+
+<section class="donation-section" id="donar">
+<div class="container donation-box">
+<span class="donation-label">Donación segura con ePayco</span>
+
+<h2>Haz parte del cambio</h2>
+
+<p>
+Tu aporte nos ayuda a seguir impulsando educación, bienestar,
+inclusión y apoyo social para las comunidades de El Valle,
+Bahía Solano, Chocó.
+</p>
+
+<div class="donation-card">
+<div class="donation-card-icon">♥</div>
+
+<div class="donation-card-content">
+<h3>Realiza tu donación en línea</h3>
+<p>
+Al hacer clic en el botón serás dirigido a la pasarela de pagos
+segura de ePayco, donde podrás completar tu aporte.
+</p>
+</div>
+</div>
+
+<a href="#donar" class="btn-primary donation-pay-button">
+Donar ahora con ePayco
+</a>
+
+<small>
+Los pagos son procesados de forma externa por ePayco. La Fundación
+Transformando Vidas no almacena datos bancarios ni información de tarjetas.
+</small>
+</div>
+</section>
+
+<section class="contact" id="contacto">
+<div class="container contact-box">
+<div class="contact-info">
+<span class="contact-label">Hablemos</span>
+
+<h2>Contáctanos</h2>
+
+<p>
+Si quieres conocer más sobre la Fundación Transformando Vidas,
+apoyar nuestros proyectos o vincularte como aliado, escríbenos.
+</p>
+
+<ul>
+<li><strong>Fundación:</strong> Fundación Transformando Vidas</li>
+<li><strong>Teléfono / WhatsApp:</strong> 312 426 8479</li>
+<li><strong>Correo:</strong> fvidasdelvallechoco@gmail.com</li>
+<li><strong>Ubicación:</strong> El Valle, Bahía Solano, Chocó.</li>
+</ul>
+</div>
+
+<form class="contact-form">
+<input type="text" placeholder="Nombre completo">
+<input type="email" placeholder="Correo electrónico">
+<input type="text" placeholder="Asunto">
+<textarea placeholder="Mensaje"></textarea>
+<button type="submit">Enviar mensaje por WhatsApp</button>
+</form>
+</div>
+</section>
+
+</main>
+
+<footer class="footer">
+<div class="container footer-content">
+<p>© 2026 Fundación Transformando Vidas.</p>
+<p>El Valle, Bahía Solano, Chocó.</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
