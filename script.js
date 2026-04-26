@@ -111,7 +111,82 @@ if (slides.length) {
 }
 
 /* =========================
-   IMÁGENES DE RESPALDO
+   CARRUSELES DE GALERÍA
+========================= */
+
+const eventCarousels = document.querySelectorAll(".event-carousel");
+
+eventCarousels.forEach((carousel, carouselIndex) => {
+  const eventSlides = carousel.querySelectorAll(".event-slide");
+  const prevButton = carousel.querySelector(".event-prev");
+  const nextButton = carousel.querySelector(".event-next");
+  const currentPhoto = carousel.querySelector(".current-photo");
+
+  let currentEventSlide = 0;
+  let eventInterval;
+
+  function showEventSlide(index) {
+    if (!eventSlides.length) return;
+
+    if (index >= eventSlides.length) {
+      currentEventSlide = 0;
+    } else if (index < 0) {
+      currentEventSlide = eventSlides.length - 1;
+    } else {
+      currentEventSlide = index;
+    }
+
+    eventSlides.forEach((slide) => {
+      slide.classList.remove("active");
+    });
+
+    eventSlides[currentEventSlide].classList.add("active");
+
+    if (currentPhoto) {
+      currentPhoto.textContent = currentEventSlide + 1;
+    }
+  }
+
+  function nextEventSlide() {
+    showEventSlide(currentEventSlide + 1);
+  }
+
+  function startEventCarousel() {
+    eventInterval = setInterval(nextEventSlide, 4200 + carouselIndex * 600);
+  }
+
+  function resetEventCarousel() {
+    clearInterval(eventInterval);
+    startEventCarousel();
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      nextEventSlide();
+      resetEventCarousel();
+    });
+  }
+
+  if (prevButton) {
+    prevButton.addEventListener("click", () => {
+      showEventSlide(currentEventSlide - 1);
+      resetEventCarousel();
+    });
+  }
+
+  carousel.addEventListener("mouseenter", () => {
+    clearInterval(eventInterval);
+  });
+
+  carousel.addEventListener("mouseleave", () => {
+    startEventCarousel();
+  });
+
+  startEventCarousel();
+});
+
+/* =========================
+   IMÁGENES DE RESPALDO HERO
 ========================= */
 
 const imageFallbacks = document.querySelectorAll("img");
