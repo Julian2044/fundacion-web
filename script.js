@@ -31,6 +31,41 @@ window.addEventListener("scroll", () => {
 });
 
 /* =========================
+   MENÚ ACTIVO POR SECCIÓN
+========================= */
+
+const sectionLinks = document.querySelectorAll(".nav a[href^='#']");
+const observedSections = Array.from(sectionLinks)
+  .map((link) => {
+    const sectionId = link.getAttribute("href");
+    return document.querySelector(sectionId);
+  })
+  .filter(Boolean);
+
+function updateActiveMenu() {
+  const scrollPosition = window.scrollY + 140;
+
+  observedSections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionBottom = sectionTop + section.offsetHeight;
+    const sectionId = `#${section.id}`;
+
+    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+      sectionLinks.forEach((link) => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === sectionId) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}
+
+window.addEventListener("scroll", updateActiveMenu);
+window.addEventListener("load", updateActiveMenu);
+
+/* =========================
    CARRUSEL HERO
 ========================= */
 
@@ -214,15 +249,11 @@ const DONATION_LINK = "https://payco.link/b59cbf39-9736-46ed-a46c-599cba7beb32";
 ========================= */
 
 const donationButtons = document.querySelectorAll(
-  'a[href="#donar"], .btn-donar'
+  '.btn-donar, .donation-pay-button, .btn-secondary[href="#donar"]'
 );
 
 donationButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
-    if (DONATION_LINK === "#") {
-      return;
-    }
-
     event.preventDefault();
     window.open(DONATION_LINK, "_blank");
   });
