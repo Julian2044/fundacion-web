@@ -242,7 +242,7 @@ CONFIGURACIÓN GENERAL
 ========================= */
 
 const WHATSAPP_NUMBER = "573124268479";
-const DONATION_LINK = "https://payco.link/b59cbf39-9736-46ed-a46c-599cba7beb32";
+const DONATION_LINK = "https://secure.payco.co/checkoutopen/1daa4002-2450-4c38-9998-48d32def8e7c";
 
 /* =========================
 BOTONES DE DONACIÓN
