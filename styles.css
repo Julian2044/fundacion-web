@@ -134,6 +134,64 @@ a {
     cursor: pointer;
 }
 
+/* BOTONES FLOTANTES DE CONTACTO */
+
+.floating-contact {
+    position: fixed;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.floating-contact-btn {
+    width: 54px;
+    min-height: 54px;
+    border-radius: 999px;
+    background: var(--blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 14px 32px rgba(0, 63, 143, 0.22);
+    font-size: 22px;
+    font-weight: 800;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.floating-contact-btn span {
+    display: none;
+    font-size: 14px;
+    padding-right: 16px;
+}
+
+.floating-contact-btn:hover {
+    width: 150px;
+    transform: translateX(-4px);
+}
+
+.floating-contact-btn:hover span {
+    display: inline-block;
+}
+
+.floating-whatsapp {
+    background: #25d366;
+}
+
+.floating-email {
+    background: var(--blue);
+}
+
+.floating-phone {
+    background: var(--green);
+}
+
 /* HERO */
 
 .hero {
@@ -1342,6 +1400,30 @@ a {
     .logo img {
         width: 106px;
         max-height: 68px;
+    }
+
+    .floating-contact {
+        right: 12px;
+        top: auto;
+        bottom: 18px;
+        transform: none;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .floating-contact-btn {
+        width: 48px;
+        min-height: 48px;
+        font-size: 20px;
+    }
+
+    .floating-contact-btn:hover {
+        width: 48px;
+        transform: translateY(-3px);
+    }
+
+    .floating-contact-btn span {
+        display: none !important;
     }
 
     .hero-content h1 {
