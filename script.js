@@ -2,9 +2,55 @@ const header = document.getElementById("header");
 const menuToggle = document.getElementById("menuToggle");
 const nav = document.getElementById("nav");
 
+/* =========================
+   MENÚ MÓVIL
+========================= */
+
+function closeMobileMenu() {
+    if (!menuToggle || !nav) return;
+
+    nav.classList.remove("show");
+    menuToggle.setAttribute("aria-expanded", "false");
+
+    const icon = menuToggle.querySelector(".menu-icon");
+    if (icon) {
+        icon.textContent = "☰";
+    }
+}
+
+function openMobileMenu() {
+    if (!menuToggle || !nav) return;
+
+    nav.classList.add("show");
+    menuToggle.setAttribute("aria-expanded", "true");
+
+    const icon = menuToggle.querySelector(".menu-icon");
+    if (icon) {
+        icon.textContent = "×";
+    }
+}
+
+function toggleMobileMenu() {
+    if (!menuToggle || !nav) return;
+
+    const isOpen = nav.classList.contains("show");
+
+    if (isOpen) {
+        closeMobileMenu();
+    } else {
+        openMobileMenu();
+    }
+}
+
 if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-        nav.classList.toggle("show");
+    menuToggle.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        toggleMobileMenu();
+    });
+
+    menuToggle.addEventListener("touchstart", (event) => {
+        event.stopPropagation();
     });
 }
 
@@ -12,8 +58,25 @@ const navLinks = document.querySelectorAll(".nav a");
 
 navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-        nav.classList.remove("show");
+        closeMobileMenu();
     });
+});
+
+document.addEventListener("click", (event) => {
+    if (!menuToggle || !nav) return;
+
+    const clickedInsideMenu = nav.contains(event.target);
+    const clickedMenuButton = menuToggle.contains(event.target);
+
+    if (!clickedInsideMenu && !clickedMenuButton) {
+        closeMobileMenu();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        closeMobileMenu();
+    }
 });
 
 /* =========================
