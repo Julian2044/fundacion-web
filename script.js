@@ -36,7 +36,7 @@ section.classList.toggle("is-hidden-section", !isActive);
 });
 
 if (decorativeWave) {
-const showWave = sectionId === "inicio";
+const showWave = false;
 decorativeWave.hidden = !showWave;
 decorativeWave.classList.toggle("is-hidden-section", !showWave);
 }
