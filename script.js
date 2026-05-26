@@ -4,6 +4,9 @@ const nav = document.getElementById("nav");
 const navLinks = document.querySelectorAll(".nav a[href^='#']");
 const pageSections = document.querySelectorAll("main > section[id]");
 const decorativeWave = document.querySelector(".wave-section");
+const sectionGroups = {
+noticias: ["evento-reciente", "noticias"],
+};
 
 function getHeaderOffset() {
 return header ? header.offsetHeight + 18 : 0;
@@ -24,12 +27,14 @@ function showSingleSection(sectionId, options = {}) {
 const target = document.getElementById(sectionId);
 if (!target) return;
 
-const { pushState = false, scroll = true } = options;
+const { pushState = false, scroll = true, scrollTargetId = sectionId } = options;
+const visibleSectionIds = sectionGroups[sectionId] || [sectionId];
+const scrollTarget = document.getElementById(scrollTargetId) || target;
 
 document.body.classList.add("single-section-mode");
 
 pageSections.forEach((section) => {
-const isActive = section.id === sectionId;
+const isActive = visibleSectionIds.includes(section.id);
 section.hidden = !isActive;
 section.classList.toggle("is-active-section", isActive);
 section.classList.toggle("is-hidden-section", !isActive);
@@ -48,7 +53,7 @@ history.pushState({ sectionId }, "", `#${sectionId}`);
 }
 
 if (scroll) {
-window.requestAnimationFrame(() => scrollToSection(target));
+window.requestAnimationFrame(() => scrollToSection(scrollTarget));
 }
 }
 
@@ -111,7 +116,8 @@ const target = sectionId ? document.querySelector(sectionId) : null;
 
 if (target) {
 event.preventDefault();
-showSingleSection(target.id, { pushState: true });
+const scrollTargetId = target.id === "noticias" ? "evento-reciente" : target.id;
+showSingleSection(target.id, { pushState: true, scrollTargetId });
 }
 
 closeMobileMenu();
@@ -399,6 +405,124 @@ startEventCarousel();
 
 startEventCarousel();
 });
+
+/* =========================
+CARRUSEL DE NOTICIAS
+========================= */
+
+const newsCarousel = document.querySelector(".news-carousel");
+
+if (newsCarousel) {
+const newsSlides = newsCarousel.querySelectorAll(".news-carousel-slide");
+const newsDots = newsCarousel.querySelectorAll(".news-carousel-dot");
+const newsPrevButton = newsCarousel.querySelector(".news-carousel-prev");
+const newsNextButton = newsCarousel.querySelector(".news-carousel-next");
+
+let currentNewsSlide = 0;
+let newsCarouselInterval;
+let isNewsCarouselPaused = false;
+
+function showNewsSlide(index) {
+if (!newsSlides.length) return;
+
+if (index >= newsSlides.length) {
+currentNewsSlide = 0;
+} else if (index < 0) {
+currentNewsSlide = newsSlides.length - 1;
+} else {
+currentNewsSlide = index;
+}
+
+newsSlides.forEach((slide, slideIndex) => {
+const isActive = slideIndex === currentNewsSlide;
+slide.classList.toggle("active", isActive);
+slide.setAttribute("aria-hidden", String(!isActive));
+});
+
+newsDots.forEach((dot, dotIndex) => {
+const isActive = dotIndex === currentNewsSlide;
+dot.classList.toggle("active", isActive);
+
+if (isActive) {
+dot.setAttribute("aria-current", "true");
+} else {
+dot.removeAttribute("aria-current");
+}
+});
+}
+
+function nextNewsSlide() {
+showNewsSlide(currentNewsSlide + 1);
+}
+
+function prevNewsSlide() {
+showNewsSlide(currentNewsSlide - 1);
+}
+
+function startNewsCarousel() {
+if (newsSlides.length < 2 || isNewsCarouselPaused) return;
+clearInterval(newsCarouselInterval);
+newsCarouselInterval = setInterval(nextNewsSlide, 4500);
+}
+
+function pauseNewsCarousel() {
+isNewsCarouselPaused = true;
+clearInterval(newsCarouselInterval);
+}
+
+function resumeNewsCarousel() {
+isNewsCarouselPaused = false;
+startNewsCarousel();
+}
+
+function resetNewsCarousel() {
+clearInterval(newsCarouselInterval);
+startNewsCarousel();
+}
+
+if (newsNextButton) {
+newsNextButton.addEventListener("click", () => {
+nextNewsSlide();
+resetNewsCarousel();
+});
+}
+
+if (newsPrevButton) {
+newsPrevButton.addEventListener("click", () => {
+prevNewsSlide();
+resetNewsCarousel();
+});
+}
+
+newsDots.forEach((dot, index) => {
+dot.addEventListener("click", () => {
+showNewsSlide(index);
+resetNewsCarousel();
+});
+});
+
+newsCarousel.addEventListener("mouseenter", pauseNewsCarousel);
+newsCarousel.addEventListener("mouseleave", resumeNewsCarousel);
+newsCarousel.addEventListener("focusin", pauseNewsCarousel);
+newsCarousel.addEventListener("focusout", resumeNewsCarousel);
+
+newsCarousel.addEventListener("keydown", (event) => {
+if (event.key === "ArrowRight") {
+event.preventDefault();
+nextNewsSlide();
+resetNewsCarousel();
+}
+
+if (event.key === "ArrowLeft") {
+event.preventDefault();
+prevNewsSlide();
+resetNewsCarousel();
+}
+});
+
+showNewsSlide(0);
+startNewsCarousel();
+}
 
 /* =========================
 IMÁGENES DE RESPALDO HERO
