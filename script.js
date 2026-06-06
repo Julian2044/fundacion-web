@@ -580,6 +580,82 @@ const WHATSAPP_NUMBER = "573124268479";
 const DONATION_LINK = "https://secure.payco.co/checkoutopen/1daa4002-2450-4c38-9998-48d32def8e7c";
 
 /* =========================
+MENSAJE PARA ENLACES EXTERNOS
+========================= */
+
+const externalLinkModal = document.getElementById("externalLinkModal");
+const externalLinkContinue = document.getElementById("externalLinkContinue");
+const externalLinkCancelButtons = document.querySelectorAll("[data-external-cancel]");
+
+let pendingExternalUrl = "";
+let lastFocusedElement = null;
+
+function closeExternalLinkMessage() {
+if (!externalLinkModal) return;
+
+externalLinkModal.classList.remove("is-visible");
+externalLinkModal.setAttribute("aria-hidden", "true");
+pendingExternalUrl = "";
+
+if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+lastFocusedElement.focus();
+}
+}
+
+function openExternalLinkWithMessage(url) {
+if (!url) return;
+
+if (!externalLinkModal || !externalLinkContinue) {
+window.open(url, "_blank", "noopener");
+return;
+}
+
+pendingExternalUrl = url;
+lastFocusedElement = document.activeElement;
+externalLinkModal.classList.add("is-visible");
+externalLinkModal.setAttribute("aria-hidden", "false");
+
+window.setTimeout(() => {
+externalLinkContinue.focus();
+}, 120);
+}
+
+if (externalLinkContinue) {
+externalLinkContinue.addEventListener("click", () => {
+const url = pendingExternalUrl;
+closeExternalLinkMessage();
+
+if (url) {
+window.open(url, "_blank", "noopener");
+}
+});
+}
+
+externalLinkCancelButtons.forEach((button) => {
+button.addEventListener("click", closeExternalLinkMessage);
+});
+
+document.addEventListener("keydown", (event) => {
+if (
+event.key === "Escape" &&
+externalLinkModal &&
+externalLinkModal.classList.contains("is-visible")
+) {
+closeExternalLinkMessage();
+}
+});
+
+document.querySelectorAll('a[target="_blank"]').forEach((link) => {
+link.addEventListener("click", (event) => {
+const href = link.getAttribute("href");
+if (!href) return;
+
+event.preventDefault();
+openExternalLinkWithMessage(href);
+});
+});
+
+/* =========================
 BOTONES DE DONACIÓN
 ========================= */
 
@@ -590,7 +666,7 @@ const donationButtons = document.querySelectorAll(
 donationButtons.forEach((button) => {
 button.addEventListener("click", (event) => {
 event.preventDefault();
-window.open(DONATION_LINK, "_blank");
+openExternalLinkWithMessage(DONATION_LINK);
 });
 });
 
@@ -608,7 +684,7 @@ if (!message) return;
 
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
-window.open(whatsappUrl, "_blank");
+openExternalLinkWithMessage(whatsappUrl);
 });
 });
 
@@ -646,7 +722,7 @@ Mensaje: ${mensaje}
 
 const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(textoWhatsApp)}`;
 
-window.open(url, "_blank");
+openExternalLinkWithMessage(url);
 
 contactForm.reset();
 });

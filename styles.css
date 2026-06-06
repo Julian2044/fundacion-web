@@ -137,6 +137,7 @@ font-weight: 700;
 position: relative;
 color: #222;
 transition: color 0.25s ease, transform 0.25s ease;
+outline: none;
 }
 
 .nav a.active,
@@ -162,6 +163,12 @@ transition: width 0.25s ease;
 .nav a.active::after,
 .nav a:hover::after {
 width: 100%;
+}
+
+.nav a:focus-visible {
+color: var(--green);
+border-radius: 8px;
+box-shadow: 0 0 0 3px rgba(47, 148, 68, 0.14);
 }
 
 .btn-donar {
@@ -1760,19 +1767,31 @@ border-color: rgba(0, 63, 143, 0.08);
 
 .social-follow {
 margin-top: 34px;
-padding: 28px;
-border-radius: 26px;
+padding: 30px;
+border-radius: 28px;
 background:
 radial-gradient(circle at top right, rgba(246, 195, 59, 0.18), transparent 35%),
+radial-gradient(circle at bottom left, rgba(47, 148, 68, 0.12), transparent 34%),
 linear-gradient(180deg, #ffffff 0%, #f8f8f4 100%);
 border: 1px solid rgba(0, 63, 143, 0.08);
 box-shadow: 0 18px 45px rgba(0, 63, 143, 0.08);
 }
 
+.social-follow-label {
+display: inline-flex;
+align-items: center;
+color: var(--green);
+font-size: 12px;
+font-weight: 900;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
 .social-follow h3 {
 color: var(--blue);
-font-size: 25px;
-line-height: 1.2;
+font-size: clamp(25px, 3vw, 32px);
+line-height: 1.15;
 margin-bottom: 12px;
 }
 
@@ -1780,45 +1799,56 @@ margin-bottom: 12px;
 color: var(--gray);
 font-size: 16px;
 line-height: 1.65;
-margin-bottom: 22px;
+margin-bottom: 24px;
 }
 
 .social-buttons {
-display: flex;
-flex-wrap: wrap;
-gap: 14px;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 16px;
 }
 
 .social-button {
-min-height: 52px;
-padding: 0 22px;
-border-radius: 999px;
+min-height: 132px;
+padding: 20px 18px;
+border-radius: 22px;
 display: inline-flex;
+flex-direction: column;
 align-items: center;
 justify-content: center;
-gap: 10px;
+gap: 13px;
 color: var(--white);
-font-weight: 900;
+text-align: center;
 box-shadow: 0 14px 30px rgba(0, 63, 143, 0.14);
+position: relative;
+overflow: hidden;
 transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+isolation: isolate;
 }
 
-.social-button span {
-width: 28px;
-height: 28px;
+.social-button::before {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), transparent 48%);
+opacity: 0.9;
+z-index: -1;
+}
+
+.social-icon {
+width: 56px;
+height: 56px;
 display: grid;
 place-items: center;
-background: rgba(255, 255, 255, 0.18);
+background: rgba(255, 255, 255, 0.2);
 border-radius: 50%;
-font-weight: 900;
-font-size: 18px;
 line-height: 1;
 box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
 }
 
 .social-button .brand-icon {
-width: 18px;
-height: 18px;
+width: 28px;
+height: 28px;
 }
 
 .social-button:hover {
@@ -1827,13 +1857,31 @@ box-shadow: 0 18px 42px rgba(0, 63, 143, 0.22);
 filter: saturate(1.06);
 }
 
+.social-button-text {
+display: grid;
+gap: 4px;
+}
+
+.social-button-text strong {
+font-size: 17px;
+font-weight: 900;
+line-height: 1.1;
+}
+
+.social-button-text small {
+color: rgba(255, 255, 255, 0.82);
+font-size: 12px;
+font-weight: 800;
+line-height: 1.25;
+}
+
 .facebook-button {
 background: #1877f2;
 }
 
 .facebook-button .brand-icon {
-width: 14px;
-height: 21px;
+width: 23px;
+height: 31px;
 }
 
 .instagram-button {
@@ -1841,8 +1889,17 @@ background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
 }
 
 .instagram-button .brand-icon {
-width: 19px;
-height: 19px;
+width: 29px;
+height: 29px;
+}
+
+.tiktok-button {
+background: linear-gradient(135deg, #111111, #252525);
+}
+
+.tiktok-button .brand-icon {
+width: 29px;
+height: 29px;
 }
 
 .contact-form {
@@ -1904,7 +1961,7 @@ background:
 radial-gradient(circle at 18% 0%, rgba(47, 148, 68, 0.28), transparent 34%),
 linear-gradient(135deg, #002f6f 0%, var(--blue) 58%, #00275c 100%);
 color: var(--white);
-padding: 54px 0 34px;
+padding: 42px 0;
 box-shadow: 0 -18px 48px rgba(0, 63, 143, 0.12);
 isolation: isolate;
 }
@@ -1933,21 +1990,34 @@ background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.36), trans
 
 .footer-content {
 display: flex;
+align-items: center;
 justify-content: space-between;
-align-items: flex-end;
-gap: 34px;
+gap: 24px;
 position: relative;
 z-index: 1;
+min-height: 92px;
 }
 
-.footer-brand,
-.footer-place {
-display: grid;
-gap: 8px;
+.footer-brand {
+display: flex;
+align-items: center;
+gap: 14px;
+min-width: 0;
+flex: 1 1 330px;
 }
 
-.footer-brand span,
-.footer-place span {
+.footer-brand img {
+width: 66px;
+height: 66px;
+object-fit: contain;
+background: rgba(255, 255, 255, 0.94);
+border-radius: 18px;
+padding: 7px;
+box-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
+flex: 0 0 auto;
+}
+
+.footer-brand span {
 color: rgba(255, 255, 255, 0.72);
 font-size: 12px;
 font-weight: 900;
@@ -1956,22 +2026,197 @@ text-transform: uppercase;
 }
 
 .footer-brand p {
-font-size: clamp(17px, 2vw, 21px);
+font-size: clamp(16px, 1.7vw, 20px);
 font-weight: 800;
 line-height: 1.35;
 }
 
-.footer-place {
-text-align: right;
-padding-left: 34px;
+.footer-strip {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0;
+flex: 1.6 1 520px;
+min-width: 0;
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.15);
+border-radius: 999px;
+padding: 12px 16px;
+box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.footer-strip a,
+.footer-strip span {
+color: rgba(255, 255, 255, 0.9);
+font-size: 13px;
+font-weight: 800;
+line-height: 1.35;
+padding: 0 14px;
+overflow-wrap: anywhere;
+text-align: center;
+white-space: nowrap;
+}
+
+.footer-strip a + a,
+.footer-strip span {
 border-left: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.footer-place p {
-color: rgba(255, 255, 255, 0.9);
-font-size: 15px;
-font-weight: 700;
-line-height: 1.45;
+.footer-strip a {
+transition: color 0.25s ease;
+}
+
+.footer-strip a:hover {
+color: var(--yellow);
+}
+
+.footer-socials {
+display: flex;
+gap: 10px;
+flex-wrap: wrap;
+justify-content: flex-end;
+flex: 0 0 auto;
+}
+
+.footer-socials a {
+width: 44px;
+height: 44px;
+border-radius: 50%;
+display: grid;
+place-items: center;
+color: var(--white);
+background: rgba(255, 255, 255, 0.14);
+box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.footer-socials a:hover {
+transform: translateY(-2px);
+background: var(--yellow);
+color: #092448;
+}
+
+.footer-socials .brand-icon {
+width: 20px;
+height: 20px;
+}
+
+/* MENSAJE PARA ENLACES EXTERNOS */
+
+.external-link-modal {
+position: fixed;
+inset: 0;
+z-index: 3000;
+display: grid;
+place-items: center;
+padding: 22px;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.22s ease;
+}
+
+.external-link-modal.is-visible {
+opacity: 1;
+pointer-events: auto;
+}
+
+.external-link-backdrop {
+position: absolute;
+inset: 0;
+background: rgba(9, 24, 42, 0.42);
+backdrop-filter: blur(6px);
+}
+
+.external-link-card {
+position: relative;
+z-index: 1;
+width: min(470px, 100%);
+background:
+radial-gradient(circle at top right, rgba(246, 195, 59, 0.18), transparent 34%),
+linear-gradient(180deg, #ffffff 0%, #f8f8f4 100%);
+border: 1px solid rgba(0, 63, 143, 0.1);
+border-radius: 26px;
+padding: 32px;
+box-shadow: 0 28px 80px rgba(0, 31, 70, 0.28);
+transform: translateY(12px) scale(0.98);
+transition: transform 0.22s ease;
+}
+
+.external-link-modal.is-visible .external-link-card {
+transform: translateY(0) scale(1);
+}
+
+.external-link-close {
+position: absolute;
+top: 14px;
+right: 14px;
+width: 36px;
+height: 36px;
+border: 0;
+border-radius: 50%;
+background: rgba(0, 63, 143, 0.08);
+color: var(--blue);
+font-size: 24px;
+line-height: 1;
+cursor: pointer;
+}
+
+.external-link-kicker {
+display: inline-flex;
+color: var(--green);
+font-size: 12px;
+font-weight: 900;
+letter-spacing: 0.8px;
+text-transform: uppercase;
+margin-bottom: 12px;
+}
+
+.external-link-card h2 {
+color: var(--blue);
+font-size: clamp(25px, 4vw, 34px);
+line-height: 1.12;
+margin-bottom: 12px;
+max-width: 380px;
+}
+
+.external-link-card p {
+color: var(--gray);
+font-size: 16px;
+line-height: 1.65;
+margin-bottom: 24px;
+}
+
+.external-link-actions {
+display: flex;
+gap: 12px;
+justify-content: flex-end;
+}
+
+.external-link-primary,
+.external-link-secondary {
+border: 0;
+min-height: 46px;
+padding: 0 18px;
+border-radius: 999px;
+font-weight: 900;
+cursor: pointer;
+transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.external-link-primary {
+background: var(--blue);
+color: var(--white);
+box-shadow: 0 14px 30px rgba(0, 63, 143, 0.2);
+}
+
+.external-link-secondary {
+background: rgba(0, 63, 143, 0.08);
+color: var(--blue);
+}
+
+.external-link-primary:hover,
+.external-link-secondary:hover {
+transform: translateY(-2px);
 }
 
 /* ANIMACIONES SUAVES */
@@ -2172,17 +2417,15 @@ min-height: 0;
 }
 
 .footer-content {
-flex-direction: column;
+flex-wrap: wrap;
 align-items: center;
-text-align: center;
 }
 
-.footer-place {
-padding-left: 0;
-padding-top: 20px;
-border-left: 0;
-border-top: 1px solid rgba(255, 255, 255, 0.18);
-text-align: center;
+.footer-strip {
+order: 3;
+flex-basis: 100%;
+max-width: 760px;
+margin: 0 auto;
 }
 }
 
@@ -2357,11 +2600,31 @@ font-size: 22px;
 }
 
 .social-buttons {
-flex-direction: column;
+grid-template-columns: 1fr;
 }
 
 .social-button {
 width: 100%;
+min-height: 108px;
+flex-direction: row;
+justify-content: flex-start;
+text-align: left;
+padding: 18px;
+}
+
+.social-icon {
+width: 50px;
+height: 50px;
+}
+
+.social-button .brand-icon {
+width: 25px;
+height: 25px;
+}
+
+.facebook-button .brand-icon {
+width: 20px;
+height: 28px;
 }
 
 .contact-details {
@@ -2372,6 +2635,63 @@ grid-template-columns: 1fr;
 grid-template-columns: 1fr;
 gap: 5px;
 padding: 15px 0;
+}
+
+.footer {
+padding: 58px 0 30px;
+}
+
+.footer-brand {
+align-items: center;
+flex: 1 1 100%;
+}
+
+.footer-brand img {
+width: 72px;
+height: 72px;
+border-radius: 18px;
+}
+
+.footer-strip {
+flex-basis: 100%;
+border-radius: 24px;
+padding: 10px 12px;
+flex-wrap: wrap;
+justify-content: flex-start;
+gap: 8px 0;
+}
+
+.footer-strip a,
+.footer-strip span {
+width: 100%;
+text-align: left;
+padding: 0;
+white-space: normal;
+}
+
+.footer-strip a + a,
+.footer-strip span {
+border-left: 0;
+}
+
+.footer-socials {
+justify-content: flex-start;
+flex-basis: 100%;
+}
+
+.external-link-modal {
+padding: 16px;
+align-items: end;
+}
+
+.external-link-card {
+padding: 28px 22px 22px;
+border-radius: 24px;
+}
+
+.external-link-actions {
+display: grid;
+grid-template-columns: 1fr;
 }
 
 .timeline-gallery::before {
